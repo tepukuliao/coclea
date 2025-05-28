@@ -1,0 +1,9 @@
+# Archivos de desarrollo de Django
+*.sqlite3
+*.pyc
+__pycache__/
+.python-version
+
+# Archivos estáticos recolectados (generados en producción)
+staticfiles/
+mediafiles/

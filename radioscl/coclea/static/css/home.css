@@ -1,0 +1,16 @@
+body {
+    font-family: 'Courier New', monospace;
+}
+
+.titulo {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.logo {
+    height: 48px;
+    width: 48px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
