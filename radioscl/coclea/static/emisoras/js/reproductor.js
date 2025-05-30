@@ -1,33 +1,44 @@
-document.addEventListener("DOMContentLoaded",function() {
-    const webamp = new Webamp({
-        initialTracks: [
-            {
+document.addEventListener("DOMContentLoaded", function() {
+    fetch("/emisoras-json/")
+        .then(response => response.json())
+        .then(data => {
+            const tracks = data.map(emisora => ({
                 metaData: {
-                    artist: "Radio Concierto",
-                    title: "Transmisión en vivo",
+                    artist: emisora.artist,
+                    title: emisora.title
                 },
-                url: "https://playerservices.streamtheworld.com/api/livestream-redirect/CONCIERTO.mp3",
-                duration: 99999999 // stream, duración indefinida
-            },
-            {
-                metaData: {
-                    artist: "Radio Bío Bío",
-                    title: "Transmisión en vivo",
-                },
-                url: "http://redirector.dps.live/biobiosantiago/aac/playlist.m3u8",
-                duration: 99999999 // stream, duración indefinida
-            }
-        ],
-        availableSkins: [
-            {
-                url: "static/emisoras/skins/Frutiger_Aero.wsz",
-                name: "Frutiger aero"
-            }
-        ],
-        initialSkin: {
-            url: "/static/emisoras/skins/Frutiger_Aero.wsz"
-        }
-    });
+                url: emisora.url,
+                duration: 99999999
+            }));
 
-    webamp.renderWhenReady(document.getElementById("winamp-container"));
+            const webamp = new Webamp({
+                initialTracks: tracks,
+                availableSkins: [
+                    {
+                        url: "/static/emisoras/skins/Khoa_Vuong.wsz",
+                        name: "Frutiger aero"
+                    }
+                ],
+                initialSkin: {
+                    url: "/static/emisoras/skins/Khoa_Vuong.wsz"
+                }
+            });
+
+            webamp.renderWhenReady(document.getElementById("winamp-container")).then(() => {
+                // Centra la ventana principal de Webamp manualmente
+                const windowManager = webamp.__internalWindowManager;
+                const mainWindow = windowManager.getWindow("main");
+
+                const screenWidth = window.innerWidth;
+                const screenHeight = window.innerHeight;
+
+                const winWidth = 275; // Ancho estimado de la ventana principal
+                const winHeight = 116; // Alto estimado
+
+                mainWindow.setPosition(
+                    Math.floor((screenWidth - winWidth) / 2),
+                    Math.floor((screenHeight - winHeight) / 2)
+                );
+            });
+        });
 });

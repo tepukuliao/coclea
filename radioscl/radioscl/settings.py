@@ -117,14 +117,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = BASE_DIR / 'staticfiles'  # O usa: os.path.join(BASE_DIR, 'staticfiles')
-
-# Directorios donde Django buscará archivos estáticos adicionales (aparte de los de cada app)
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',  # Ruta a tu carpeta "static/" global (la que ya tienes)
-]
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
