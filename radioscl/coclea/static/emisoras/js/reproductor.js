@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     fetch("/emisoras-json/")
         .then(response => response.json())
         .then(data => {
@@ -13,32 +13,35 @@ document.addEventListener("DOMContentLoaded", function() {
 
             const webamp = new Webamp({
                 initialTracks: tracks,
-                availableSkins: [
-                    {
-                        url: "/static/emisoras/skins/Khoa_Vuong.wsz",
-                        name: "Frutiger aero"
-                    }
-                ],
                 initialSkin: {
-                    url: "/static/emisoras/skins/Khoa_Vuong.wsz"
+                    url: "/static/emisoras/skins/Sony CDX-MP3.wsz"
                 }
             });
 
             webamp.renderWhenReady(document.getElementById("winamp-container")).then(() => {
-                // Centra la ventana principal de Webamp manualmente
+                // Centrar la ventana
                 const windowManager = webamp.__internalWindowManager;
-                const mainWindow = windowManager.getWindow("main");
+                const mainWindow = windowManager?.getWindow?.("main");
 
-                const screenWidth = window.innerWidth;
-                const screenHeight = window.innerHeight;
+                if (mainWindow) {
+                    const screenWidth = window.innerWidth;
+                    const screenHeight = window.innerHeight;
+                    const winWidth = 275;
+                    const winHeight = 116;
 
-                const winWidth = 275; // Ancho estimado de la ventana principal
-                const winHeight = 116; // Alto estimado
+                    mainWindow.setPosition(
+                        Math.floor((screenWidth - winWidth) / 2),
+                        Math.floor((screenHeight - winHeight) / 2)
+                    );
+                }
 
-                mainWindow.setPosition(
-                    Math.floor((screenWidth - winWidth) / 2),
-                    Math.floor((screenHeight - winHeight) / 2)
-                );
+                // Agrega los listeners a los botones para cambiar skins
+                document.querySelectorAll('#skin-buttons button').forEach(button => {
+                    button.addEventListener('click', () => {
+                        const newSkinUrl = button.getAttribute('data-skin');
+                        webamp.setSkinFromUrl(newSkinUrl);
+                    });
+                });
             });
         });
 });
