@@ -1,21 +1,25 @@
+/* TITULO */
 body {
-    background-image: url('/static/img/black_hole.gif') ;  
-    background-repeat: no-repeat;
-    background-position: right top; 
-    background-color: #000; 
+    background-image: url('/static/img/fondo.gif') ;  
     font-family: 'Courier New', monospace;
 }
 
+.contenedor-main {
+    display: flex;
+    flex-direction: column;
+}
+
 .titulo {
+    display: flex;
     justify-content: center;
     align-items: center;
-    display: flex;
     color: #ff5722;
     animation: fuego 3s ease-in-out infinite;
+    margin-top: 20px;
 }
 @keyframes fuego {
-    0%, 100% { color: #ff5722; text-shadow: 0 0 5px #ff5722; }
-    50% { color: #ffeb3b; text-shadow: 0 0 10px #ffeb3b; }
+    0%, 100% { color: #f5d5e0; text-shadow: 0 0 5px #7b337d; }
+    50% { color: #c874b2; text-shadow: 0 0 10px #f5d5e0; }
 }
 
 .logo {
@@ -25,6 +29,9 @@ body {
     margin-right: 8px;
 }
 
+
+/* REPRODUCTOR */
+
 #winamp-container {
     position: fixed;
     top: 50%;
@@ -32,6 +39,31 @@ body {
     transform: translate(-50%, -50%) scale(2); /* escala 1.5x */
     transform-origin: center center;
     z-index: 9999;
+}
+
+/* BOTONES */
+
+.boton-fondo {
+    background-color: transparent;
+    border: 2px solid #c874b2;
+    border-radius: 10px;
+    color: #ffffff;
+    padding: 10px 20px;
+    margin: 5px;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.boton-fondo:hover {
+    background-color: #7a337d6a; 
+    box-shadow: 0 0 12px #f5d5e0;
 }
 
 .skin-buttons ul {
@@ -46,7 +78,7 @@ body {
 
 .skin-buttons button {
   background-color: transparent;
-  border: 2px solid #ff5722;
+  border: 2px solid #c874b2;
   border-radius: 10px;
   color: #ffffff;
   padding: 10px 20px;
@@ -59,11 +91,7 @@ body {
 }
 
 .skin-buttons button:hover {
-    background-color: rgba(247, 90, 79, 0.2); /* Azul translúcido */
-    box-shadow: 0 0 12px rgba(247, 141, 79, 0.9);
+    background-color: #7a337d6a; 
+    box-shadow: 0 0 12px #f5d5e0;
 }
-
-
-
-
 

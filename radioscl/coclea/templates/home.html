@@ -9,10 +9,15 @@
 </head>
 <body>
 
-    <div class="titulo">
-        <h1>Cóclea.cl</h1> 
-        <img src="{% static 'img/logo.png' %}" alt="logo" class="logo">
+    <div class="contenedor-main">
+        <div class="titulo">
+            <h1>Cóclea.cl</h1> 
+            <img src="{% static 'img/logo.png' %}" alt="logo" class="logo">
+        </div>  
+        <button id="cambiar-fondo" class="boton-fondo">Cambiar fondo</button>
     </div>
+
+    
 
 
     
@@ -35,11 +40,11 @@
     </div>
 
 
-   
     <div id="winamp-container"></div>
 
 
     <script src="https://unpkg.com/webamp@latest/built/webamp.bundle.min.js"></script>
+    <script src="{% static 'emisoras/js/cambiar_fondo.js' %}"></script>
     <script src="{% static 'emisoras/js/reproductor.js' %}"></script>
 </body>
 </html>
