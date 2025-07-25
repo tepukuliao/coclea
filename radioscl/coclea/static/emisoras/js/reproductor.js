@@ -11,10 +11,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 duration: 99999999
             }));
 
+            const SkinGuardada = localStorage.getItem("SkinSave") || "/static/emisoras/skins/Sony CDX-MP3.wsz";
+
             const webamp = new Webamp({
                 initialTracks: tracks,
                 initialSkin: {
-                    url: "/static/emisoras/skins/Sony CDX-MP3.wsz"
+                    url: SkinGuardada
                 }
             });
 
@@ -40,6 +42,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     button.addEventListener('click', () => {
                         const newSkinUrl = button.getAttribute('data-skin');
                         webamp.setSkinFromUrl(newSkinUrl);
+                        localStorage.setItem("SkinSave", newSkinUrl);
+                        console.log("Skin guardada: ", newSkinUrl);
                     });
                 });
             });
