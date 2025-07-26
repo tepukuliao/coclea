@@ -43,7 +43,7 @@ body {
 
 /* BOTONES */
 
-.skins {
+.mostrar-skins {
     background-color: transparent;
     border: 2px solid #c874b2;
     border-radius: 10px;
@@ -54,6 +54,16 @@ body {
     font-family: 'Courier New', monospace;
     box-shadow: 0 3px 6px rgba(0,0,0,0.2);
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.mostrar-skins:hover {
+    background-color: #7a337d6a;
+    box-shadow: 0 0 12px #f5d5e0;
 }
 
 .boton-fondo {
@@ -69,7 +79,7 @@ body {
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     position: absolute;
-    bottom: 0;
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
 }

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <title>Cóclea.cl</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'img/logo.ico' %}">
 </head>
 <body>
 
@@ -14,10 +15,12 @@
             <h1>Cóclea.cl</h1> 
             <img src="{% static 'img/logo.png' %}" alt="logo" class="logo">
         </div>  
+        <div>
         <button id="cambiar-fondo" class="boton-fondo">Cambiar fondo</button>
+        <button id="toggle-skins" class="mostrar-skins">Skins</button>
     </div>
 
-    <button id="toggle-skins" class="skins">Skins</button>
+    
     
 
     <div id="skin-buttons" class="skin-buttons" style="display: none;">
