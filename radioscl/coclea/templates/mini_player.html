@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/mini.css' %}">
+    <title>Cóclea.cl</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'img/logo.ico' %}">
+</head>
+<body>
+    <div id="winamp-container"></div>
+
+
+    <script src="https://unpkg.com/webamp@latest/built/webamp.bundle.min.js"></script>
+    <script src="{% static 'emisoras/js/reproductor.js' %}"></script>
+</body>
+</html>

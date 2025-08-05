@@ -7,6 +7,10 @@ def home(request):
     estaciones = EstacionRadio.objects.all()
     return render(request, "home.html", {"estaciones": estaciones})
 
+def mini_player(request):
+    estaciones = EstacionRadio.objects.all()
+    return render(request, "mini_player.html", {"estaciones": estaciones})
+
 def emisoras_json(request):
     emisoras = EstacionRadio.objects.all()
     data = [
