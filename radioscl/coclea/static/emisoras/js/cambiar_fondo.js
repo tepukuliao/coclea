@@ -8,11 +8,19 @@ const fondos = [
         tipo: "mosaico"
     },
     {
-        url: "/static/img/black_hole.gif",
+        url: "/static/img/tky.gif",
         tipo: "completo"
     },
     {
-        url: "/static/img/luna_eclipse.gif",
+        url: "/static/img/mtains.gif",
+        tipo: "completo"
+    },
+    {
+        url: "/static/img/sunset.gif",
+        tipo: "completo"
+    },
+    {
+        url: "/static/img/natureGrn.gif",
         tipo: "completo"
     }
 ];
