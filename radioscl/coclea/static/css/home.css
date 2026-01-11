@@ -140,3 +140,88 @@ body {
     box-shadow: 0 0 12px #f5d5e0;
 }
 
+/* CONTENEDOR CHAT */
+#muro-mensajes {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+#chat-lateral {
+    position: fixed;
+    top: 25px;
+    right: 20px;
+    width: 350px;
+    height: calc(95vh - 80px);
+    background: #11111199;
+    border: 2px solid #f5d5e0;
+    border-radius: 8px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    font-family: monospace;
+}
+
+/* TÍTULO */
+#chat-lateral h2 {
+    margin: 8px;
+    text-align: center;
+    color: #f5d5e0;
+    font-size: 16px;
+}
+
+/* LISTA MENSAJES */
+#lista-mensajes {
+    flex: 1;
+    overflow-y: auto;
+    padding: 8px;
+    list-style: none;
+    margin: 0;
+}
+
+#lista-mensajes li {
+    background: #000000a0;
+    border-radius: 4px;
+    padding: 6px;
+    margin-bottom: 6px;
+    color: #fff;
+    font-size: 13px;
+}
+
+#lista-mensajes strong {
+    color: #f5d5e0;
+}
+
+/* FORMULARIO */
+#form-muro {
+    padding: 8px;
+    border-top: 1px solid #f5d5e0;
+}
+
+#form-muro input,
+#form-muro textarea {
+    width: 100%;
+    background: #000;
+    color: #f5d5e0;
+    border: 1px solid #f5d5e0;
+    margin-bottom: 6px;
+    padding: 4px;
+    font-family: monospace;
+}
+
+#form-muro textarea {
+    resize: none;
+    height: 50px;
+}
+
+#form-muro button {
+    width: 100%;
+    background: #f5d5e0;
+    color: #000;
+    border: none;
+    padding: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
