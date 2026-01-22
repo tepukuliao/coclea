@@ -48,3 +48,15 @@ def publicar_mensaje(request):
         })
     return JsonResponse({"error": "Metodo no permitido"}, status=405)
 
+def obtener_mensajes(request):
+    mensajes = MensajeMuro.objects.order_by('-fecha')[:50]
+    data = [
+        {
+            "nombre": m.nombre,
+            "mensaje": m.mensaje,
+            "fecha": m.fecha.isoformat()
+        }
+        for m in mensajes
+    ]
+    return JsonResponse(data, safe=False)
+
